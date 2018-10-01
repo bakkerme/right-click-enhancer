@@ -1,0 +1,19 @@
+{
+  "name": "Navigate To",
+  "author": "Brandon Bakker",
+  "version": "1.0",
+  "description": "When highlighting a URL, you can now navigate to it via the right-click menu",
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "contextMenus"
+  ], 
+  "browser_action": {
+    "default_title": "Navigate To",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "scripts": ["js/navigate-to.js"],
+    "persistent": true
+  }
+}
