@@ -1,12 +1,24 @@
-browser.contextMenus.create({
-    id: "remove-me",
-    title: "Navigate To",
-    contexts: ["all"]
-}, onCreated);
+browser.runtime.onMessage.addListener(contentMessageRecieved);
 
-function onCreated() {
-  console.log("test");
+function contentMessageRecieved(e) {
+  console.log('Got a message!');
+  // if(text !== '') {
+    
+  // } else {
+  //   browser.contextMenus.removeAll();
+  // }
 }
+// browser.contextMenus.create({
+//       id: "remove-me",
+//       title: "Navigate To",
+//       contexts: ["all"]
+//     }, onClicked);
+
+//     function onClicked() {
+//       console.log("test");
+//       console.log("test2");
+//     }
+
 
 // "default_icon": {
       // "20": "images/color-changer20.png",
