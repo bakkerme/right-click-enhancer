@@ -1,5 +1,6 @@
 document.onmouseup = highlightHandler;
 
+let lastHighlight;
 function highlightHandler(e) {
   console.log("onup");
   const highlightedText = document.getSelection();
@@ -9,4 +10,3 @@ function highlightHandler(e) {
       browser.runtime.sendMessage(null, {data: null});
   }
 }
-
