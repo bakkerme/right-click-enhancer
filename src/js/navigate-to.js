@@ -1,34 +1,41 @@
 import urlRegex from 'url-regex';
-let hasMenu = false;
+let isNavigating = false;
 
 browser.runtime.onMessage.addListener(contentMessageReceived);
 
 function contentMessageReceived(e) {
-  const { data } = e;
+  const { data: highlightedText } = e;
   console.log('Got a message!');
-  console.log(data);
+  console.log(highlightedText);
 
-  if (!data) {
-    hasMenu = false;
+  isNavigating = false;
+
+  if (!highlightedText) {
     browser.contextMenus.removeAll();
     return;
   }
 
-  const isURL = urlRegex().test(data);
+  const isURL = urlRegex(true).test(highlightedText);
   if (isURL) {
-    hasMenu = true;
+    const onContextMenuItemClick = onClicked(highlightedText);
     browser.contextMenus.create({
       id: "remove-me",
-      title: "Navigate To",
-      contexts: ["all"]
-    }, onClicked);
+      title: `Navigate to "${highlightedText}"`,
+      contexts: ["all"],
+      onclick: onContextMenuItemClick
+    });
   }
 }
 
-function onClicked() {
-      console.log("test");
-      console.log("test2");
-    }
+const onClicked = (url) => () => {
+  if(!isNavigating) {
+    console.log("Navigating to: " + url);
+    browser.tabs.create({ url });
+    browser.contextMenus.removeAll();
+
+    isNavigating = true;
+  }
+}
 
 // "default_icon": {
 // "20": "images/color-changer20.png",
