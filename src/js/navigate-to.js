@@ -17,7 +17,7 @@ function contentMessageReceived(e) {
 
   const isURL = urlRegex(true).test(highlightedText);
   if (isURL) {
-    const onContextMenuItemClick = onClicked(highlightedText);
+    const onContextMenuItemClick = onClicked(highlightedText.trim());
     browser.contextMenus.create({
       id: "remove-me",
       title: `Navigate to "${highlightedText}"`,
