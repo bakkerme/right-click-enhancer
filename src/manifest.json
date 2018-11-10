@@ -8,10 +8,6 @@
     "tabs",
     "contextMenus"
   ], 
-  "browser_action": {
-    "default_title": "Navigate To",
-    "default_popup": "index.html"
-  },
   "background": {
     "scripts": ["navigate-to.bundle.js"],
     "persistent": true
@@ -22,5 +18,12 @@
       "matches": ["<all_urls>"],
       "js": [ "content-script.bundle.js" ]
     }
-  ]
+  ],
+  "icons": {
+    "16": "img/nt-proto-white-16.png",
+    "32": "img/nt-proto-white-32.png",
+    "48": "img/nt-full-black-48.png",
+    "128": "img/nt-full-black-128.png",
+    "176": "img/nt-full-black-176.png"
+  }
 }

@@ -1,15 +1,21 @@
 import urlRegex from 'url-regex';
+import createDebug from 'debug';
+
+const debug = createDebug('nt:general');
 let isNavigating = false;
 
 browser.runtime.onMessage.addListener(contentMessageReceived);
 
 function contentMessageReceived(e) {
   const { data: highlightedText } = e;
-  console.log('Got a message!');
-  console.log(highlightedText);
 
+  debug('Got a message!');
+  debug(`Text highligted is: ${highlightedText}`);
+
+  // Starting the process, ensure the system knows we aren't navigating
   isNavigating = false;
 
+  // Clear the menus if the user has unselected the url
   if (!highlightedText) {
     browser.contextMenus.removeAll();
     return;
@@ -17,27 +23,24 @@ function contentMessageReceived(e) {
 
   const isURL = urlRegex(true).test(highlightedText);
   if (isURL) {
-    const onContextMenuItemClick = onClicked(highlightedText.trim());
+    debug("The user has highlighted a URL");
+    const url = highlightedText.trim(); // Clear any spaces or linebreaks
+    const onContextMenuItemClick = onClicked(url);
     browser.contextMenus.create({
-      id: "remove-me",
-      title: `Navigate to "${highlightedText}"`,
+      id: "navigate-to",
+      title: `Navigate to "${url}"`,
       contexts: ["all"],
-      onclick: onContextMenuItemClick
+      onclick: onContextMenuItemClick,
     });
   }
 }
 
 const onClicked = (url) => () => {
   if(!isNavigating) {
-    console.log("Navigating to: " + url);
+    debug(`Navigating to: ${url}`);
     browser.tabs.create({ url });
     browser.contextMenus.removeAll();
 
     isNavigating = true;
   }
 }
-
-// "default_icon": {
-// "20": "images/color-changer20.png",
-// "40": "images/color-changer40.png"
-// },
