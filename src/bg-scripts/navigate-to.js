@@ -1,16 +1,15 @@
 import urlRegex from 'url-regex';
 import createDebug from 'debug';
+import { NAVIGATE_TO } from '../plugins';
 
 const debug = createDebug('nt:general');
 let isNavigating = false;
 
-browser.runtime.onMessage.addListener(contentMessageReceived);
-
 function contentMessageReceived(e) {
-  const { data: highlightedText } = e;
+  const highlightedText = e;
 
   debug('Got a message!');
-  debug(`Text highligted is: ${highlightedText}`);
+  debug(`Text highlighted is: ${highlightedText}`);
 
   // Starting the process, ensure the system knows we aren't navigating
   isNavigating = false;
@@ -43,4 +42,11 @@ const onClicked = (url) => () => {
 
     isNavigating = true;
   }
+}
+
+export default function registerPlugin() {
+  return {
+    id: NAVIGATE_TO,
+    onMessage: contentMessageReceived
+  };
 }

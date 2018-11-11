@@ -16,22 +16,19 @@
     "type": "git",
     "url": "git+ssh://git@gitlab.com/bakkerme/navigate-to.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Brandon Bakker",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://gitlab.com/bakkerme/navigate-to/issues"
   },
   "homepage": "https://gitlab.com/bakkerme/navigate-to#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
-    "jest": "^23.6.0",
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.11.2",
     "fs-extra": "^0.30.0",
-    "html-loader": "^0.4.5",
-    "html-webpack-plugin": "2.24.1",
     "style-loader": "^0.13.0",
     "webpack": "2.2.1",
     "webpack-dev-server": "^2.3.0",

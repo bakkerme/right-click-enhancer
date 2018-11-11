@@ -4,7 +4,6 @@ var webpack = require("webpack"),
     env = require("./utils/env"),
     CleanWebpackPlugin = require("clean-webpack-plugin"),
     CopyWebpackPlugin = require("copy-webpack-plugin"),
-    // HtmlWebpackPlugin = require("html-webpack-plugin"),
     WriteFilePlugin = require("write-file-webpack-plugin");
 
 // load the secrets
@@ -20,8 +19,8 @@ if (fileSystem.existsSync(secretsPath)) {
 
 var options = {
   entry: {
-    "navigate-to": path.join(__dirname, "src", "js", "navigate-to.js"),
-    "content-script": path.join(__dirname, "src", "js", "content-script.js"),
+    "bg-script": path.join(__dirname, "src", "bg-scripts", "bg-script.js"),
+    "content-script": path.join(__dirname, "src", "content-scripts", "content-script.js"),
   },
   output: {
     path: path.join(__dirname, "build"),
@@ -70,11 +69,6 @@ var options = {
       },
       { from: 'src/img', to: 'img' },
     ]),
-    // new HtmlWebpackPlugin({
-    //   template: path.join(__dirname, "src", "index.html"),
-    //   filename: "index.html",
-    //   chunks: ["index"]
-    // }),
     new WriteFilePlugin()
   ]
 };

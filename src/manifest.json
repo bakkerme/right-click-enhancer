@@ -1,22 +1,24 @@
 {
-  "name": "Navigate To",
+  "name": "Right Click Enhancer",
   "author": "Brandon Bakker",
+  "manifest_version": 2,
   "version": "1.0",
-  "description": "When highlighting a URL, you can now navigate to it via the right-click menu",
+  "description": "Adds a number of utilities to enhance the right-click context menu",
   "permissions": [
     "<all_urls>",
     "tabs",
     "contextMenus"
   ], 
   "background": {
-    "scripts": ["navigate-to.bundle.js"],
+    "scripts": ["bg-script.bundle.js"],
     "persistent": true
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     { 
       "matches": ["<all_urls>"],
-      "js": [ "content-script.bundle.js" ]
+      "js": [ "content-script.bundle.js" ],
+      "run_at": "document_end"
     }
   ],
   "icons": {
