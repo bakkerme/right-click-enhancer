@@ -1,4 +1,5 @@
 import registerNavigateTo from './navigate-to';
+import registerInPrivateImageSave from './inprivate-image-save';
 import createDebug from 'debug';
 
 const debug = createDebug('nt:plugin-bg');
@@ -16,6 +17,7 @@ function contentMessageReceived(e) {
 }
 
 const { id: nID, onMessage: nOnMessage }= registerNavigateTo();
+const { id: nID, onMessage: nOnMessage }= registerInPrivateImageSave();
 registeredPlugins[nID] = nOnMessage;
 
 // Add the message handler to the browser to receive events from the content scripts
