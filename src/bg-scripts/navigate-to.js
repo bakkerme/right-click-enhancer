@@ -28,7 +28,7 @@ function contentMessageReceived(e) {
     browser.contextMenus.create({
       id: "navigate-to",
       title: `Navigate to "${url}"`,
-      contexts: ["all"],
+      contexts: ["selection"],
       onclick: onContextMenuItemClick,
     });
   }

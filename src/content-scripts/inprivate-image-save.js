@@ -23,24 +23,6 @@ function saveImage(e) {
   xhr.send();
 }
 
-function addSaveImage(elem) {
-  console.error(`Adding save for ${elem}`);
-  sendMessage(buildMessage(INPRIVATE_IMAGE_SAVE, { src: elem.src }));
-}
-
-function clearMenu() {
-  sendMessage(buildMessage(INPRIVATE_IMAGE_SAVE, { src: null }));
-}
-
 export default function start() {
-  document.addEventListener('contextmenu', function (e) {
-    // e.preventDefault();
-    const x = event.clientX, y = event.clientY;
-    const elementMouseIsOver = document.elementFromPoint(x, y);
-    if(elementMouseIsOver && elementMouseIsOver.tagName === "IMG") {
-      addSaveImage(elementMouseIsOver);
-    } else {
-      clearMenu();
-    }
-  });
+  
 }
