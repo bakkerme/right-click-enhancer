@@ -2,7 +2,7 @@ import urlRegex from 'url-regex';
 import createDebug from 'debug';
 import { NAVIGATE_TO } from '../plugins';
 
-const debug = createDebug('nt:general');
+const debug = createDebug('rt:nt:general');
 let isNavigating = false;
 
 function contentMessageReceived(e) {
@@ -14,9 +14,9 @@ function contentMessageReceived(e) {
   // Starting the process, ensure the system knows we aren't navigating
   isNavigating = false;
 
-  // Clear the menus if the user has unselected the url
+  // Clear the menu if the user has unselected the url
   if (!highlightedText) {
-    browser.contextMenus.removeAll();
+    browser.contextMenus.remove("navigate-to");
     return;
   }
 

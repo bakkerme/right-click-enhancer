@@ -1,28 +1,29 @@
 import { INPRIVATE_IMAGE_SAVE } from '../plugins';
 import { buildMessage, sendMessage } from './utils';
 
-function saveImage(e) {
-  debugger;
-  const filename = this.src.substring(this.src.lastIndexOf("/") + 1);
+browser.runtime.onMessage.addListener(request => {
+  saveImage(request.srcUrl);
+});
 
-  const xhr = new XMLHttpRequest();
-  xhr.responseType = 'blob';
-  xhr.onload = function () {
-    // xhr.response is a Blob
-    const url = URL.createObjectURL(xhr.response);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
+// Based on https://github.com/PixelsCommander/Download-File-JS
+function saveImage(srcUrl) {
+  //Creating new link node.
+  var link = document.createElement('a');
+  link.href = srcUrl;
+
+  if (link.download !== undefined) {
+    //Set HTML5 download attribute. This will prevent file from opening if supported.
+    var fileName = srcUrl.substring(srcUrl.lastIndexOf('/') + 1, srcUrl.length);
+    link.download = fileName;
+  }
+
+  //Dispatching click event.
+  if (document.createEvent) {
     const e = document.createEvent('MouseEvents');
-    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-    a.dispatchEvent(e);
-    window.URL.revokeObjectURL(url);
-  };
-
-  xhr.open('GET', this.src);
-  xhr.send();
+    e.initEvent('click', true, true);
+    link.dispatchEvent(e);
+    return true;
+  }
 }
 
-export default function start() {
-  
-}
+export default function start() { }
