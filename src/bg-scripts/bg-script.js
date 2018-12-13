@@ -1,6 +1,9 @@
+import createDebug from 'debug';
 import registerNavigateTo from './navigate-to';
 import registerInPrivateImageSave from './inprivate-image-save';
-import createDebug from 'debug';
+import { getBrowserObject } from '../utils';
+
+const browser = getBrowserObject();
 
 const debug = createDebug('re:plugin-bg');
 
@@ -9,10 +12,9 @@ const registeredPlugins = {};
 function contentMessageReceived(e) {
   const { id, data } = e.data;
 
-  if(!id)
-    debug('WARNING: No id passed');
+  if (!id) { debug('WARNING: No id passed'); }
 
-  if(typeof registeredPlugins[id] !== 'function') {
+  if (typeof registeredPlugins[id] !== 'function') {
     debug(`WARNING: Plugin ${id} not registered in BG script system`);
     return;
   }

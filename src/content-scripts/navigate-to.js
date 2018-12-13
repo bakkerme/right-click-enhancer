@@ -1,5 +1,8 @@
 import { NAVIGATE_TO } from '../plugins';
 import { buildMessage, sendMessage } from './utils';
+import { getBrowserObject } from '../utils';
+
+const browser = getBrowserObject();
 
 function highlightHandler(e) {
   const highlightedText = document.getSelection().toString();

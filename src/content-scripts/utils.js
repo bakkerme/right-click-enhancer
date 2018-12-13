@@ -1,9 +1,9 @@
 function buildMessage(id, data) {
   return {
     data: {
-      id, data
-    }
-  }
+      id, data,
+    },
+  };
 }
 
 function sendMessage(data) {
@@ -12,5 +12,5 @@ function sendMessage(data) {
 
 export {
   buildMessage,
-  sendMessage
+  sendMessage,
 };
