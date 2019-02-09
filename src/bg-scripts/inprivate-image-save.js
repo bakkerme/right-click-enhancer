@@ -41,5 +41,3 @@ export default function registerPlugin() {
     onMessage: _ => _,
   };
 }
-
-src / bg - scripts / inprivate - image - save.js;

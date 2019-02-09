@@ -1,3 +1,3 @@
-const getBrowserObject = () => (typeof chrome !== 'undefined' ? chrome : browser);
+const getBrowserObject = () => (typeof browser !== 'undefined' ? browser : chrome);
 
 export { getBrowserObject };

@@ -1,12 +1,6 @@
-import { INPRIVATE_IMAGE_SAVE } from '../plugins';
-import { buildMessage, sendMessage } from './utils';
 import { getBrowserObject } from '../utils';
 
 const browser = getBrowserObject();
-
-browser.runtime.onMessage.addListener((request) => {
-  saveImage(request.srcUrl);
-});
 
 // Based on https://github.com/PixelsCommander/Download-File-JS
 function saveImage(srcUrl) {
@@ -27,6 +21,12 @@ function saveImage(srcUrl) {
     link.dispatchEvent(e);
     return true;
   }
+
+  return false;
 }
+
+browser.runtime.onMessage.addListener((request) => {
+  saveImage(request.srcUrl);
+});
 
 export default function start() { }
