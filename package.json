@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-page": "http-server ./tests/",
     "build": "node utils/build.js",
-    "start": "node utils/webserver.js"
+    "start": "node utils/webserver.js",
+    "build-prod": "NODE_ENV=prod npm run build && manifoldjs -l debug -p edgeextension -f edgeextension -m build/manifest.json"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "file-loader": "^0.11.2",
     "fs-extra": "^0.30.0",
     "http-server": "^0.11.1",
+    "manifoldjs": "^0.7.6",
     "style-loader": "^0.13.0",
     "webpack": "2.2.1",
     "webpack-dev-server": "^2.3.0",
