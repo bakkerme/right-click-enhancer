@@ -11,7 +11,10 @@
     "test-page": "http-server ./tests/",
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
-    "build-prod": "sh scripts/build-production.sh"
+    "build-prod": "sh scripts/build-production.sh",
+    "create-and-trust-certs": "powershell.exe ./scripts/create-and-trust-certs.ps1",
+    "sign-appx": "powershell.exe ./scripts/sign-appx-package.ps1"
+
   },
   "repository": {
     "type": "git",

@@ -16,6 +16,4 @@ sed -i 's/transparent/black/' appxmanifest.xml
 cd ../../../
 manifoldjs -l debug -p edgeextension package RightClickEnhancer/edgeextension/manifest/
 
-powershell.exe ./scripts/sign-appx-package.ps1
-
 echo "Finished! Find your package in RightClickEnhancer/edgeextension/package"
