@@ -1,5 +1,5 @@
 {
-  "name": "navigate-to",
+  "name": "right-click-enhancer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,18 +11,18 @@
     "test-page": "http-server ./tests/",
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
-    "build-prod": "NODE_ENV=prod npm run build && manifoldjs -l debug -p edgeextension -f edgeextension -m build/manifest.json"
+    "build-prod": "sh scripts/build-production.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/bakkerme/navigate-to.git"
+    "url": "git@github.com:bakkerme/right-click-enhancer.git"
   },
   "author": "Brandon Bakker",
-  "license": "GPLv3",
+  "license": "AGPLv3",
   "bugs": {
-    "url": "https://gitlab.com/bakkerme/navigate-to/issues"
+    "url": "https://github.com/bakkerme/right-click-enhancer/issues"
   },
-  "homepage": "https://gitlab.com/bakkerme/navigate-to#readme",
+  "homepage": "https://github.com/bakkerme/right-click-enhancer#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.2.0",
