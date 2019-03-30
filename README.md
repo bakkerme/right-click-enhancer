@@ -31,7 +31,7 @@ Much like above, this will create the `build` folder, but doesn't hot reload or 
 If you want to use this extension day-to-day with your own modifications, I'd recomend just doing a developer, rather than going through the production build steps below. I've seen no performance impacts, and either way Edge still won't trust the extension. It's just less messing around.
 
 ## Production Build
-You will need thee Windows SDK installed for this.
+You will need the Windows SDK installed for this.
 
 Run:
 ```bash
