@@ -60,7 +60,7 @@ const options = {
   },
   plugins: [
     // clean the build folder
-    new CleanWebpackPlugin(['build']),
+    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: 'build' }),
     // expose and write the allowed env vars on the compiled bundle
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
@@ -68,7 +68,7 @@ const options = {
     new CopyWebpackPlugin([
       {
         from: 'src/manifest.json',
-        transform(content, path) {
+        transform(content) {
           // generates the manifest file using the package.json informations
           return Buffer.from(JSON.stringify({
             description: process.env.npm_package_description,
