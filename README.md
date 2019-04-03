@@ -9,11 +9,13 @@ This is a work-in-progress and more features will be added if it sounds good and
 
 ## Features
 * Can open a valid but unlinked URL in the page by highligting it
-* Can open an image in a new tab (strangely MS Edge does not do this)
+* Can open an image in a new tab
 * Can save an image without it being renamed and converted to a PNG while in InPrivate mode
 * ...and more to come
 
 ## Developing
+These scripts were designed to be run in Windows Subsystem for Linux, but will probably work in Cygwin or a Linux VM. The Powershell scripts do need to be run in Windows, however.
+
 Opening in developer hotreloading mode
 ```bash
 npm install
@@ -27,8 +29,6 @@ npm install
 npm run build
 ```
 Much like above, this will create the `build` folder, but doesn't hot reload or rebuild on save. 
-
-If you want to use this extension day-to-day with your own modifications, I'd recomend just doing a developer, rather than going through the production build steps below. I've seen no performance impacts, and either way Edge still won't trust the extension. It's just less messing around.
 
 ## Production Build
 You will need the Windows SDK installed for this.
