@@ -7,7 +7,7 @@ Right Click Enhancer is a **WebExtention** for **Microsoft Edge** that adds hand
 
 This is a work-in-progress and more features will be added if it sounds good and useful. This extension is available on the Microsoft Store.
 
-<a href='//www.microsoft.com/store/apps/9P9C8ZWGGFV9?cid=storebadge&ocid=badge' ><img src='https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png' alt='English badge' width="142px" style='width: 284px; height: 104px;'/></a>
+<a href='//www.microsoft.com/store/apps/9P9C8ZWGGFV9?cid=storebadge&ocid=badge' target="_blank"><img src='https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png' alt='English badge' width="142px" style='width: 284px; height: 104px;'/></a>
 
 ## Features
 * Can open a valid but unlinked URL in the page by highligting it
